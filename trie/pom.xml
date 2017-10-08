@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.alarit</groupId>
 	<artifactId>alar-trie</artifactId>
-	<version>1.0.0</version>
+	<version>1.0a</version>
 	<name>Alar Trie</name>
-	<description>This is Java implementation of a trie</description>
+	<description>This library exposes a Dictionary built over an implementation of a trie</description>
 
 	<dependencies>
 		<dependency>

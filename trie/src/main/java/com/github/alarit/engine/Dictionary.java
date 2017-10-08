@@ -1,9 +1,9 @@
 package com.github.alarit.engine;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.github.alarit.model.Letter;
 import com.github.alarit.model.Trie;
 
 public class Dictionary {
@@ -14,14 +14,11 @@ public class Dictionary {
 	public Dictionary() {
 		trie = new Trie();
 		words = new HashSet<>();
-		Letter root = new Letter(' ', false);
-
-		trie.setRoot(root);
 	}
 	
 	public void addWord(String word) {
 		/*
-		 * FIXME Add regexp excluding special chars
+		 * FIXME Add regexp checking unsopported chars
 		 */
 		String lCaseWord = word.toLowerCase();
 		if(! words.contains(lCaseWord)) {
@@ -36,5 +33,9 @@ public class Dictionary {
 	
 	public boolean containsWord(String word) {
 		return words.contains(word.toLowerCase());
+	}
+	
+	public Collection<String> startsWithWord(String word) {
+		return trie.startsWithWord(word);
 	}
 }
