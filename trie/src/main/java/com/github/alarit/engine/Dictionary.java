@@ -20,14 +20,13 @@ public class Dictionary {
 		/*
 		 * FIXME Add regexp checking unsopported chars
 		 */
-		String lCaseWord = word.toLowerCase();
-		if(! words.contains(lCaseWord)) {
-			trie.addWord(lCaseWord);
-			words.add(lCaseWord);
+		if(!words.contains(word)) {
+			trie.addWord(word);
+			words.add(word);
 		}
 	}
 	
-	public Set<String> getWords() {
+	public Collection<String> getAllWords() {
 		return words;
 	}
 	
@@ -35,7 +34,7 @@ public class Dictionary {
 		return words.contains(word.toLowerCase());
 	}
 	
-	public Collection<String> startsWithWord(String word) {
+	public Collection<String> startsWithSubstring(String word) {
 		return trie.startsWithWord(word);
 	}
 }

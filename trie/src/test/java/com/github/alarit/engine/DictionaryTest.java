@@ -31,7 +31,7 @@ public class DictionaryTest {
 	
 	@Test
 	public void dictionarySizeTest() {
-		assertEquals(13, dictionary.getWords().size());
+		assertEquals(13, dictionary.getAllWords().size());
 	}
 	
 	@Test
@@ -42,10 +42,10 @@ public class DictionaryTest {
 	
 	@Test
 	public void startsWithTest() {
-		assertEquals(dictionary.startsWithWord("ho").size(), 5);
-		assertEquals(dictionary.startsWithWord("a").size(), 6);
-		assertEquals(dictionary.startsWithWord("s").size(), 1);
-		assertTrue(dictionary.startsWithWord("x").isEmpty());
+		assertEquals(dictionary.startsWithSubstring("ho").size(), 5);
+		assertEquals(dictionary.startsWithSubstring("a").size(), 6);
+		assertEquals(dictionary.startsWithSubstring("s").size(), 1);
+		assertTrue(dictionary.startsWithSubstring("x").isEmpty());
 	}
 
 }
