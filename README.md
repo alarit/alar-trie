@@ -4,8 +4,8 @@ Alar-Trie is a java library which provides a Dictionary built over an implementa
 
 
 Two kind of dictionaries are available: 
-* Dictionary: composed by words(String) only
-* MappedDictionary: A Map where each word is associated to a specific generic value
+* Dictionary: composed by words(Set<String>) only
+* MappedDictionary: A map(Map<T,String>) where each word is paired to a specific value
 
 
 ## Example
@@ -14,7 +14,6 @@ Here's an example of finding all the words (and their values) starting with a ch
 
 ```
 //Setup the dictionary
-
 MappedDictionary<Long> dictionary = new MappedDictionary<>();
 dictionary.addWord(4L,"america");
 dictionary.addWord(5L,"available");
