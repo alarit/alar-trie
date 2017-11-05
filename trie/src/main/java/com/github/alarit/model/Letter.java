@@ -6,11 +6,11 @@ class Letter {
 	private boolean isLast;
 	private Letter[] nextChars;
 
-	public Letter(char value, boolean isLast) {
+	public Letter(char value, boolean isLast, int availChars) {
 		super();
 		this.value = value;
 		this.isLast = isLast;
-		nextChars = new Letter[26];
+		nextChars = new Letter[availChars];
 	}
 
 	Letter[] getNextChars() {

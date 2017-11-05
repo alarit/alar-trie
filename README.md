@@ -5,15 +5,17 @@ Alar-Trie is a java library which provides a Dictionary built over an implementa
 
 Two kind of dictionaries are available: 
 * Dictionary: composed by words(Set<String>) only
-* MappedDictionary: A map(Map<T,String>) where each word is paired to a specific value
+* MappedDictionary: A map(Map<T,String>) where each word is paired to a specific id
+
+Dictionaries can be defined case-sensitive.
 
 
 ## Example
 
-Here's an example of finding all the words (and their values) starting with a chosen substring
+Here's an example of finding all the words (and their ids) starting with a chosen substring
 
 ```
-//Setup the dictionary
+//Setup the dictionary (case insensitive)
 MappedDictionary<Long> dictionary = new MappedDictionary<>();
 dictionary.addWord(4L,"america");
 dictionary.addWord(5L,"available");
@@ -23,8 +25,8 @@ dictionary.addWord(9L,"home");
 dictionary.addWord(10L,"honey");
 dictionary.addWord(11L,"hover");
 
-//Find how many words start with "ho"
-dictionary.startsWithSubstring("ho");
+//Will return a map with all the words starting with "ho" {"home", "honey", "hover"} and their ids
+Map<Long, String> map = dictionary.startsWithSubstring("ho");
 ```
 
 ## License

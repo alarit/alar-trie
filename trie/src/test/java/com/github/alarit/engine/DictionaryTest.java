@@ -9,43 +9,60 @@ import org.junit.Test;
 
 public class DictionaryTest {
 
-	private Dictionary dictionary;
+	private Dictionary dictionaryNotCS;
+	private Dictionary dictionaryCS;
 	
 	@Before
 	public void init() {
-		dictionary = new Dictionary();
-		dictionary.addWord("alessandro");
-		dictionary.addWord("aid");
-		dictionary.addWord("average");
-		dictionary.addWord("america");
-		dictionary.addWord("available");
-		dictionary.addWord("axe");
-		dictionary.addWord("sun");
-		dictionary.addWord("run");
-		dictionary.addWord("home");
-		dictionary.addWord("honey");
-		dictionary.addWord("hover");
-		dictionary.addWord("house");
-		dictionary.addWord("hour");
+		dictionaryNotCS = new Dictionary();
+		dictionaryNotCS.addWord("alessandro");
+		dictionaryNotCS.addWord("aid");
+		dictionaryNotCS.addWord("average");
+		dictionaryNotCS.addWord("america");
+		dictionaryNotCS.addWord("available");
+		dictionaryNotCS.addWord("axe");
+		dictionaryNotCS.addWord("sun");
+		dictionaryNotCS.addWord("fuzz");
+		dictionaryNotCS.addWord("home");
+		dictionaryNotCS.addWord("honey");
+		dictionaryNotCS.addWord("hover");
+		dictionaryNotCS.addWord("house");
+		dictionaryNotCS.addWord("hour");
+		
+		dictionaryCS = new Dictionary(true);
+		dictionaryCS.addWord("home");
+		dictionaryCS.addWord("Honey");
+		dictionaryCS.addWord("Hover");
+		dictionaryCS.addWord("house");
+		dictionaryCS.addWord("hour");
 	}
 	
 	@Test
 	public void dictionarySizeTest() {
-		assertEquals(13, dictionary.getAllWords().size());
+		assertEquals(13, dictionaryNotCS.getAllWords().size());
+		
+		assertEquals(5, dictionaryCS.getAllWords().size());
 	}
 	
 	@Test
 	public void containsWordTest() {
-		assertTrue(dictionary.containsWord("sun"));
-		assertFalse(dictionary.containsWord("tablet"));
+		assertTrue(dictionaryNotCS.containsWord("sun"));
+		assertFalse(dictionaryNotCS.containsWord("tablet"));
+		
+		assertTrue(dictionaryCS.containsWord("Honey"));
+		assertFalse(dictionaryCS.containsWord("honey"));
 	}
 	
 	@Test
 	public void startsWithTest() {
-		assertEquals(dictionary.startsWithSubstring("ho").size(), 5);
-		assertEquals(dictionary.startsWithSubstring("a").size(), 6);
-		assertEquals(dictionary.startsWithSubstring("s").size(), 1);
-		assertTrue(dictionary.startsWithSubstring("x").isEmpty());
+		assertEquals(dictionaryNotCS.startsWithSubstring("ho").size(), 5);
+		assertEquals(dictionaryNotCS.startsWithSubstring("a").size(), 6);
+		assertEquals(dictionaryNotCS.startsWithSubstring("s").size(), 1);
+		assertTrue(dictionaryNotCS.startsWithSubstring("x").isEmpty());
+		
+		assertEquals(dictionaryCS.startsWithSubstring("Ho").size(), 2);
+		assertEquals(dictionaryCS.startsWithSubstring("ho").size(), 3);
+		assertTrue(dictionaryCS.startsWithSubstring("x").isEmpty());
 	}
 
 }
