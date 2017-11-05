@@ -12,7 +12,23 @@ Dictionaries can be defined case-sensitive.
 
 ## Example
 
-Here's an example of finding all the words (and their ids) starting with a chosen substring
+Below an example of finding all the words starting with a chosen substring
+
+```
+//Setup the dictionary (case insensitive)
+Dictionary dictionary = new Dictionary();
+dictionary.addWord("alessandro");
+dictionary.addWord("run");
+dictionary.addWord("home");
+dictionary.addWord("honey");
+dictionary.addWord("hover");
+
+//Will return a Collection of all the words starting with "ho" {"home", "honey", "hover"}
+Collection<String> foundWords = dictionary.startsWithSubstring("ho");
+```
+
+
+While here's an example of finding all the words (and their ids) starting with a chosen substring
 
 ```
 //Setup the dictionary (case insensitive)
